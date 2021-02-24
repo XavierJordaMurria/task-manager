@@ -12,13 +12,13 @@ export class TasksController {
     constructor(private taskService: TasksService) { }
 
     @Get()
-    getTasks(@Query(ValidationPipe) getTaskFiletrDto: GetTasksFilterDto): Task[] {
+    getTasks(@Query(ValidationPipe) getTaskFiletrDto: GetTasksFilterDto): Promise<Task[]> {
         return this.taskService.getTasks(getTaskFiletrDto);
     }
 
     @Post()
     @UsePipes(ValidationPipe)
-    createTask(@Body() createTaskDto: CreateTaskDto): Task {
+    createTask(@Body() createTaskDto: CreateTaskDto): Promise<Task> {
         return this.taskService.createTask(createTaskDto);
     }
 

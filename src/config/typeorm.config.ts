@@ -7,6 +7,6 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     username: 'unicorn_user',
     password: 'magical_password',
     database: 'rainbow_database',
-    entities: [ __dirname + './../**/**.entity.ts'],
+    entities: [__dirname + '/../**/*.entity{.ts,.js}'],
     synchronize: true,
 }

@@ -12,12 +12,12 @@ import { TaskRepository } from './task.repository';
 export class TasksService {
 
     constructor(
-        @InjectRepository(TasksService)
+        @InjectRepository(TaskRepository)
         private taskRepository: TaskRepository
     ) { }
 
     public async getTasks( getTaskFiletrDto: GetTasksFilterDto): Promise<Task[]> {
-        return this.tasks;
+        return this.taskRepository.getTasks(getTaskFiletrDto);
     }
 
     public async getTaskByID(id: number): Promise<Task> {
